@@ -1,0 +1,5 @@
+.link{
+    @apply mx-[2%] w-[15%] text-black text-2xl hover:text-blue-500 text-center hover:bg-gray-400 ;
+    @apply  rounded-full;
+    @apply active:bg-red-400 hover:shadow-lg hover:shadow-gray-600
+}

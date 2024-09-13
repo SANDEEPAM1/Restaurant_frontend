@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import NavBar from './components/NavBar/NavBar.jsx'
+import Button from './components/Button/Button.jsx'
+import Tables from './components/Tables/Tables.jsx'
 
 
 function App() {
@@ -6,7 +9,7 @@ function App() {
 
   return (
     <>
-    <h1>Restuarent Mangment Web Application</h1>
+     
       
     </>
   )
