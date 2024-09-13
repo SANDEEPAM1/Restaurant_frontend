@@ -5,9 +5,9 @@ import './NavBar.css'
 function NavBar() {
   return (
     <>
-    <div className="flex w-[100%] justify-between items-center h-20 bg-[#F5F5DC]">
+    <div className=" flex w-[100%] justify-between items-center h-[13vh] bg-[#c1c19d]">
         <div className="ml-[10%] w-[20%] text-center logo">
-            <img src={logo} alt="logo" className='h-12' />
+            <img src={logo} alt="logo" className='h-[12vh]' />
         </div>
         <div className="links mr-[10%] w-[80%] flex justify-end">
             <a href='/' className='link'>Home</a>
