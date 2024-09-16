@@ -1,3 +1,6 @@
 .header{
- @apply    
+    @apply   text-[8vh] text-center w-[50%] pb-[15%] uppercase absolute font-bold   
+}
+.paragraph{
+    @apply text-[3vh] w-[70%] absolute bottom-[20vh] text-center
 }
