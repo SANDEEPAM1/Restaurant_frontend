@@ -6,6 +6,7 @@ import vedioClip from '../assets/resturantTour.mp4'
 import plate from '../assets/dsds.jpg'
 import HomeMiddle from '../components/HomeMiddle/HomeMiddle'
 import Card from '../components/Card/Card'
+import CardMount from '../components/CardMount/CardMount'
 
 
 
@@ -17,7 +18,7 @@ const Home = () => {
     <Border/>
     <HomeMiddle/>
     <Border/>
-    <Card/>
+    <CardMount/>  
     
     </>
   )

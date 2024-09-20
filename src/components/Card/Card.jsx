@@ -1,30 +1,43 @@
 import React from 'react'
-import buns from '../../assets/plateFrame.jpg'
+import buns from '../../assets/chicken.jpg'
+import bun2 from '../../assets/buns.jpg'
+import bun3 from '../../assets/dsds.jpg'
 
-function Card() {
+import './Card.css'
+
+function Card(props) {
   return (
-    <div className='mx-auto my-auto mt-10 border-black ml-7'>
-    <div className='  w-[20%] bg-gray-300 rounded-[10px] h-[350px] hover:shadow-lg hover:shadow-gray-700  transition transform hover:scale-105 hover:mt-2 flex flex-col justify-between shadow-lg shadow-gray-500'>
-        <div className="max-w-[60%]image rounded-[10px]">
-            <img src={buns} alt="food photo" className='rounded-t-[10px] ' />
+    <>
+    
+    
+
+    <div className='  mt-5 ml-5 w-[80%] bg-gray-300 rounded-[10px] h-[350px] hover:shadow-lg hover:shadow-gray-700  transition transform hover:scale-105 flex flex-col justify-between shadow-lg shadow-gray-500'>
+
+        <div className="image rounded-[10px]">
+            <img src={props.imageUrl} alt="food photo" className='rounded-t-[10px]  image-class' />
         </div>
-        <div className="flex justify-between max-h-[10%] ">
+
+        <div className="flex justify-between p-1 title">
                 <h1 className='font-serif text-2xl font-bold '> 
-                  Chicken Roles
+                  {props.titel}
                 </h1>
                 <h2>Rating Feild</h2>
                 
         </div>
-        <div className=' description max-h-[20%]  w-full overflow-auto'>
-            <p className='max-h-[]'>this is a nutritional food that can use in breakfast as a result people helo this sa</p>
+
+        <div className='w-full p-1 overflow-auto description'>
+            <p className=''>{props.description}</p>
         </div>
-        <div className='price max-h-[10%]'>
-          $10
+
+        <div className='p-1 text-orange-500 price'>
+          ${props.price}
         </div>
+        
     </div>
-    <br/>
-    <br />
-    </div>
+    
+  
+    </>
+    
   )
 }
 
