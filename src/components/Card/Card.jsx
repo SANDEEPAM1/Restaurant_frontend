@@ -11,7 +11,7 @@ function Card(props) {
     
     
 
-    <div className='  mt-5 ml-5 w-[80%] bg-gray-300 rounded-[10px] h-[350px] hover:shadow-lg hover:shadow-gray-700  transition transform hover:scale-105 flex flex-col justify-between shadow-lg shadow-gray-500'>
+    <div className='  mt-5 ml-5 w-[80%] bg-gray-300 rounded-[10px] h-[350px] hover:shadow-lg hover:shadow-gray-700  transition transform hover:scale-105 duration-300 flex flex-col justify-between shadow-lg shadow-gray-500'>
 
         <div className="image rounded-[10px]">
             <img src={props.imageUrl} alt="food photo" className='rounded-t-[10px]  image-class' />

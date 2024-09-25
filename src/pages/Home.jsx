@@ -7,6 +7,7 @@ import plate from '../assets/dsds.jpg'
 import HomeMiddle from '../components/HomeMiddle/HomeMiddle'
 import Card from '../components/Card/Card'
 import CardMount from '../components/CardMount/CardMount'
+import Footer from '../components/Footer/Footer'
 
 
 
@@ -19,7 +20,9 @@ const Home = () => {
     <HomeMiddle/>
     <Border/>
     <CardMount/>  
-    
+    <Border/>
+    <Footer/>
+
     </>
   )
 }

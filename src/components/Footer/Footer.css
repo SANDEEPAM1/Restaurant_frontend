@@ -1,0 +1,39 @@
+.text{
+    @apply flex flex-col items-center gap-5  text-white w-[30%];
+    text-align: justify
+    
+}
+.footerContainer{
+    @apply h-[60vh] flex justify-between px-[7%] py-[1%];
+}
+.menu{
+    @apply w-[30%];
+    
+}
+.socialmedia{
+    @apply w-[30%];
+
+}
+a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+a{
+    font-size: 3.5vh;
+}
+.ficon:hover{
+    color: blue;
+}
+.iicon:hover{
+    color: indigo;
+}
+.ticon:hover{
+    color: rgb(57, 229, 235)
+}
+.yicon:hover{
+    color: red
+}
+.licon:hover{
+    color:blue
+}
+    

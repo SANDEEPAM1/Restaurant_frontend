@@ -2,5 +2,11 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap:16px;
+    max-height: 95vh;
+    background-color:aliceblue;
+    
 
+}
+.cardContainer::-webkit-scrollbar{
+    display: none
 }

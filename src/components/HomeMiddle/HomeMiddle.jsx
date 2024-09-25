@@ -5,8 +5,9 @@ import Button from "../Button/Button";
 
 function HomeMiddle() {
     const buttonName ="About Us"
+    //bg-gradient-to-b from-gray-900 via-gray-700 to-gray-500
   return (
-    <div className="relative flex items-center gap-4 justify-between w-full h-[30%] bg-gradient-to-b from-gray-900 via-gray-700 to-gray-500">
+    <div className="relative flex items-center gap-4 justify-between w-full h-[30%] bg-black">
       <div className="mx-auto flex flex-col w-[25%] items-center justify-center py-4">
         <img src={plate} className=""/>
       </div>
