@@ -1,12 +1,16 @@
 import { useState } from 'react'
-import Home from './pages/Home.jsx'
+import { BrowserRouter, createBrowserRouter,Outlet,Router,RouterProvider } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 function App() {
   
-
   return (
     <>
-    <Home/>
+    
+    <NavBar/>
+    <Outlet/>
+    <Footer/>
     </>
   )
 }

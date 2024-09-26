@@ -14,14 +14,14 @@ import Footer from '../components/Footer/Footer'
 const Home = () => {
   return (
     <>
-    <NavBar/>
+    
     <Hero/>
     <Border/>
     <HomeMiddle/>
     <Border/>
     <CardMount/>  
     <Border/>
-    <Footer/>
+    
 
     </>
   )

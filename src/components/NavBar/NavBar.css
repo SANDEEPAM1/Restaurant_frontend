@@ -1,5 +1,5 @@
 .link{
-    @apply mx-[2%] w-[15%] text-black text-2xl hover:text-blue-500 text-center hover:bg-gray-500 ;
-    @apply  rounded-full;
-    @apply active:bg-gray-400 hover:shadow-lg hover:shadow-gray-600
+    @apply mx-[2%] w-auto text-black text-xl hover:text-blue-500 text-center hover:bg-neutral-400 px-5 py-2 ;
+    @apply  transition duration-300 transform rounded-[20px] hover:scale-105;
+    @apply active:bg-gray-700 hover:shadow-lg hover:shadow-gray-600
 }
