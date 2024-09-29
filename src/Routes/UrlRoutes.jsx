@@ -5,11 +5,7 @@ const routes =[
     },
     {
         path:'/menu',
-        page:'Menu'
-    },
-    {
-        path:'/order',
-        page:'Online Ordering'
+        page:'Menu & Order Online'
     },
     {
         path:'/reservation',
