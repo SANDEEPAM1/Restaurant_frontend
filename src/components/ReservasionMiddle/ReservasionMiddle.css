@@ -1,0 +1,6 @@
+.images{
+    @apply w-[300px] h-[300px]
+}
+.container{
+    @apply bg-black inset-0 opacity-30
+}
