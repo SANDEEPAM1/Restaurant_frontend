@@ -8,6 +8,7 @@ import HomeMiddle from '../components/HomeMiddle/HomeMiddle'
 import Card from '../components/Card/Card'
 import CardMount from '../components/CardMount/CardMount'
 import Footer from '../components/Footer/Footer'
+import TestData from '../components/TestData/TestData'
 
 
 
@@ -19,7 +20,9 @@ const Home = () => {
     <Border/>
     <HomeMiddle/>
     <Border/>
-    <CardMount/>  
+    <CardMount
+      data={TestData}
+    />  
     <Border/>
     
 

@@ -1,0 +1,44 @@
+const testData = [
+    {
+        image:"/menuFilterImages/cacke.jpg",
+        name:"All",
+        catagory:"all"
+    },
+    {
+        image:"/menuFilterImages/rice_and_curry.jpg",
+        name:"Rice",
+        catagory:"rice"
+    },
+    {
+        image:"/menuFilterImages/kottu.jpg",
+        name:"Kottu",
+        catagory:"kottu"
+    },
+    {
+        image:"/menuFilterImages/noodles.jpg",
+        name:"Noodles",
+        catagory:"noodles"
+    },
+    {
+        image:"/menuFilterImages/pasta.jpg",
+        name:"Pasta",
+        catagory:"pasta"
+    },
+    {
+        image:"/menuFilterImages/Rolls.jpg",
+        name:"Rolls",
+        catagory:"rolls"
+    },
+    {
+        image:"/menuFilterImages/salad.jpg",
+        name:"Salad",
+        catagory:"salad"
+    },
+    {
+        image:"/menuFilterImages/sandwich.jpg",
+        name:"Sandwich",
+        catagory:"sandwich"
+    }
+
+]
+export default testData;

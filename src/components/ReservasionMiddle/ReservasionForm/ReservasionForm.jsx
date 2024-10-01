@@ -3,6 +3,7 @@ import './ReservasionForm.css'
 import { useState } from 'react'
 import Button from '../../Button/Button'
 import { useNavigate } from 'react-router-dom'
+import * as Yep from 'yup'
 
 
 
@@ -12,15 +13,28 @@ const navigate =useNavigate();
 
  const [formData,setFormData] = useState({
   fname:"",
-  phoneNumber:null,
+  phoneNumber:"",
   date:null,
   time:null,
   guest:null,
-  area:"",
+  area:"Terrace",
   celebration:"no",
   occation:"",
   arrange:""
  });
+
+ const [errors,setErrors] = useState([])
+
+ const validationScheama = Yep.object({
+    fname: Yep.string().required("Name is required"),
+    phoneNumber: Yep.string().matches(/^\d{10}$/,"Phone nuber must 10 digits").required("Phone number is required"),
+    date:Yep.date().required("Date is required"),
+    time:Yep.string().required("Time is required"),
+    guest:Yep.number().required("Number of guests is required").min(1,"At leats there should be a one guest").max(10,"Maximum number for one table is 10"),
+    area:Yep.string().required("area is required"),
+    arrange:Yep.string("Enter Valid details")
+
+ })
 
  const handleChanges = (e)=>{
   const name = e.target.name;
@@ -33,11 +47,22 @@ const navigate =useNavigate();
 
  }
 
- const handelSubmitt =(e) =>{
+ const handelSubmitt = async(e) =>{
     e.preventDefault();
-     alert("the table is resreved successfully");
-     console.log(formData)
+     try {
+      await validationScheama.validate(formData,{abortEarly:false})
+      // console.log("formsubmited",formData)
       navigate("/")
+     } catch (error) {
+        console.log(error)
+        const validationError = {}
+        error.inner.forEach((err)=>{
+            validationError[err.path] = err.message;
+        })
+        setErrors(validationError);
+     }
+     
+      
     
  }
 
@@ -54,25 +79,45 @@ const navigate =useNavigate();
       <div className='mt-5 '>
         <form action="" method='POST' >
 
-          <div className='flex justify-between gap-5 mb-10'>
-          <input type="text" onChange={handleChanges} placeholder='Name' id="fullName" name='fname' value={formData.fname} className='w-[60%] h-[8vh] Namefeild '/>
-          <input type="tel" onChange={handleChanges} id="phoneNumber" placeholder=' mobile number' name='phoneNumber' value={formData.phoneNumber} className='w-[60%] h-[8vh] Namefeild'/>
+          <div className='flex justify-center gap-5 mb-10'>
+
+          <div className='w-full'>
+          <input type="text" onChange={handleChanges} placeholder='Name' id="fullName" name='fname' value={formData.fname} className='w-full h-[8vh] Namefeild '/>
+          {errors.fname && <p className='error-message'>{errors.fname}</p>}
+          </div>
+
+          <div className='w-full'>
+          <input type="tel" onChange={handleChanges} id="phoneNumber" placeholder=' mobile number' name='phoneNumber' value={formData.phoneNumber} className='w-full h-[8vh] Namefeild'/>
+          {errors.phoneNumber && <p className='error-message'>{errors.phoneNumber}</p>}
+          </div>
+
           </div>
 
         <div className='flex justify-between gap-5 mb-10'>
-        <input type="date" onChange={handleChanges} placeholder='date' name='date' value={formData.date} id="date" className='w-[60%] h-[8vh] Namefeild'/>
-        <input type="time" onChange={handleChanges} placeholder='time' name='time' value={formData.time} className='w-[60%] h-[8vh] Namefeild'/>
+          <div className='w-full'>
+        <input type="date" onChange={handleChanges} placeholder='date' name='date' value={formData.date} id="date" className='w-full h-[8vh] Namefeild'/>
+        {errors.date && <p className='error-message'>{errors.date}</p>}
+          </div>
+          <div className='w-full'>
+        <input type="time" onChange={handleChanges} placeholder='time' name='time' value={formData.time} className='w-full h-[8vh] Namefeild'/>
+        {errors.time && <p className='error-message'>{errors.time}</p>}
+        </div>
         </div>
 
         
       <div className='flex justify-between gap-5 mb-10'>
-        <input type="number" placeholder='Number of Guests' onChange={handleChanges} name='guests' value={formData.guest} id="numberOfGuests" min={1} max={10} className='w-[60%] h-[8vh] Namefeild'/>
-
-        <select name="area" id="area" onChange={handleChanges} value={formData.area} className='w-[60%] h-[8vh] Namefeild'>
+      <div className='w-full'>
+        <input type="number" placeholder='Number of Guests' onChange={handleChanges} name='guest' value={formData.guest} id="numberOfGuests" min={1} max={10} className='w-full h-[8vh] Namefeild'/>
+        {errors.guest && <p className='error-message'>{errors.guest}</p>}
+      </div>
+      <div className='w-full'>
+        <select name="area" id="area" onChange={handleChanges} value={formData.area} className='w-full h-[8vh] Namefeild'>
           <option value="Terrace">The Terrace</option>
           <option value="Lounge">The Lounge</option>
           <option value="Panorama">The Panorama</option>
         </select>
+        {errors.area && <p className='error-message'>{errors.area}</p>}
+        </div>
       </div>
 
            <div className='flex items-center justify-between gap-1 mb-10'>
@@ -106,6 +151,7 @@ const navigate =useNavigate();
             
             <div className='flex'>
             <textarea name="arrange" value={formData.arrange} onChange={handleChanges} placeholder='Special Requrirements' id="arrange" rows={4} cols={100} className='Namefeild text-start'/>
+            {errors.arrange && <p className='error-message'>{errors.arrange}</p>}
             </div>
 
             <div className=' Rbutton'>
