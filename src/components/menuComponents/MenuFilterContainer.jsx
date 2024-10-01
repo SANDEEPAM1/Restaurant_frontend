@@ -1,11 +1,12 @@
 import React from 'react'
 import testData from '../TestData/TestMenuFilterData'
 import MenuFilterCard from './MenuFilterCard'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { CatagoryContext } from '../../context/CatagoryContext'
 
 const MenuFilterContainer = () => {
 
-    const [selectCatagory,setSelectCatagory] = useState('all')
+    const {selectCatagory,setSelectCatagory} = useContext(CatagoryContext)
 
 const handleCatagory = (catagory) =>{
         setSelectCatagory(catagory);
