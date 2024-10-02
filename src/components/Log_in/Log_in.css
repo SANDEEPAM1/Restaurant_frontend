@@ -1,0 +1,33 @@
+input{
+    @apply w-full h-full;
+    text-align: center;
+    border:0px;
+    background-color: transparent;
+    border-radius: 12px;
+    font-size: 20px !important;
+}
+.login{
+    @apply w-[80%] h-[7vh] border-black border-[2px] rounded-xl shadow-md shadow-slate-900 transition transform hover:scale-105 duration-300;
+}
+input::placeholder{
+    color: black !important;
+    font-size: 20px !important;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 20;
+  }
+  
+  .popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 22;
+    border-radius: 20px;
+  }

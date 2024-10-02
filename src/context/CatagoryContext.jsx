@@ -11,5 +11,5 @@ export const CatagoryProvider = ({children}) => {
             <CatagoryContext.Provider value={{selectCatagory,setSelectCatagory}}>
                 {children}
             </CatagoryContext.Provider>
-        )
-}
+        );
+};

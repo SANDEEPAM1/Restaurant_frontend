@@ -6,6 +6,7 @@ import CardMount from '../components/CardMount/CardMount'
 import testData from '../components/TestData/TestData'
 import {CatagoryContext} from '../context/CatagoryContext'
 
+
 function Menu() {
 
 const {selectCatagory} = useContext(CatagoryContext)
@@ -19,6 +20,7 @@ const {selectCatagory} = useContext(CatagoryContext)
     <CardMount
       data={filterData}
     />
+    <Border/>
     </>
   )
 }

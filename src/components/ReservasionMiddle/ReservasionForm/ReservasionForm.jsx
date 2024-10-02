@@ -9,21 +9,30 @@ import * as Yep from 'yup'
 
 function ReservasionForm() {
 
+//   <div className="radio-container">
+//   <label className='radio-label'>
+//    <input type='radio' onChange={handleChanges} name="celebration" value="yes" checked={formData.celebration === "yes"} className='radio-large' /> Yes
+//    </label>
+//   <label className='radio-label'>
+//   <input type="radio" onChange={handleChanges} name="celebration" value="no" checked={formData.celebration === "no"} className='radio-large' /> No
+//   </label>
+// </div>
+
 const navigate =useNavigate();
 
  const [formData,setFormData] = useState({
   fname:"",
   phoneNumber:"",
-  date:null,
-  time:null,
-  guest:null,
+  date:"",
+  time:"",
+  guest:"",
   area:"Terrace",
   celebration:"no",
   occation:"",
   arrange:""
  });
 
- const [errors,setErrors] = useState([])
+ const [errors,setErrors] = useState({})
 
  const validationScheama = Yep.object({
     fname: Yep.string().required("Name is required"),
@@ -54,7 +63,7 @@ const navigate =useNavigate();
       // console.log("formsubmited",formData)
       navigate("/")
      } catch (error) {
-        console.log(error)
+        // console.log(error)
         const validationError = {}
         error.inner.forEach((err)=>{
             validationError[err.path] = err.message;
@@ -77,7 +86,7 @@ const navigate =useNavigate();
         </div>
 
       <div className='mt-5 '>
-        <form action="" method='POST' >
+        <form action="" method='POST' className='z-50' >
 
           <div className='flex justify-center gap-5 mb-10'>
 
@@ -124,8 +133,22 @@ const navigate =useNavigate();
             <div className='flex flex-col justify-between gap-3 '>
             <label htmlFor='celebration' className='text-[30px] text-blue-600'>Are your reserving for celebration?</label>
             <p className='text-[20px] font-serif text-blue-600 mb-2'>Pick  one</p>
-            <label className=''><input type='radio'onChange={handleChanges} name="celebration" value="yes" checked={formData.celebration==="yes"} className='radio-large'/> Yes </label>
-            <label><input type="radio" onChange={handleChanges} name="celebration" value="no" checked={formData.celebration === "no"} className='radio-large'/> No</label>
+
+
+            <div className="radio-container">
+
+              <div className='flex items-center'>
+              <label className='radio-label'> Yes </label>
+              <input type='radio' onChange={handleChanges} name="celebration" value="yes" checked={formData.celebration === "yes"} className='radio-large' />
+              </div>
+                
+                 <div className='flex items-center'>
+                 <label className='radio-label'>No </label>
+                 <input type="radio" onChange={handleChanges} name="celebration" value="no" checked={formData.celebration === "no"} className='radio-large' />
+                 </div>
+             
+            </div>
+            
             </div>
               {/* hidden area */}
             <div>
