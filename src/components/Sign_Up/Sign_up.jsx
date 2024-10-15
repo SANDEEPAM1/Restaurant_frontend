@@ -4,6 +4,7 @@ import Button from '../Button/Button'
 import './Sign_up.css'
 import { Navigate, useNavigate } from 'react-router-dom'
 import * as Yep from 'yup'
+import axios from 'axios'
 
 
 const Sign_up = ({isVisible,onClose}) => {
@@ -12,7 +13,7 @@ const Sign_up = ({isVisible,onClose}) => {
     const [formData, setFormData] = useState({
         username:"",
         password:"",
-        confirmPasword:"",
+        confirmPassword:"",
         email:""
 
     });
@@ -27,8 +28,8 @@ const Sign_up = ({isVisible,onClose}) => {
         .matches(/[0-9]/,"Password must contain at least one number")
         .matches(/[A-Z]/,"Password must contsin at least one uppercase letter")
         .matches(/[a-z]/,"Password must contain at least one lowercase letter"),
-        confirmPasword:Yep.string().oneOf([Yep.ref("password")],"Passwords must match")
-        .required("Confirm password is not required"),
+        confirmPassword:Yep.string().oneOf([Yep.ref("password")],"Passwords must match")
+        .required("Confirm password is required"),
         email:Yep.string().required("email is required").email("Invalid email")
 
 
@@ -39,14 +40,31 @@ const Sign_up = ({isVisible,onClose}) => {
 
         try {
             await validationScheama.validate(formData,{abortEarly:false})
+            const response =await axios.post('https://localhost:7298/api/Auth/register',formData)
+            
+            setFormData({
+              username:'',
+              password:'',
+              confirmPassword:'',
+              email:''  
+            });
+        
+            console.log(response.status)
+            setErrors({});
+            alert("the account is created")
+            onClose();
             navigate('/');
+            
         } catch (error) {
             const validationError = {}
-            error.inner.forEach((err)=>{
-
-                validationError[err.path] = err.message
-    
-            })
+            
+            if (error.inner && Array.isArray(error.inner)) {
+                error.inner.forEach((err) => {
+                    validationError[err.path] = err.message;
+                });
+            } else {
+                console.error("Unexpected error structure:", error); // Log unexpected errors
+            }
             setErrors(validationError)
             
         }
@@ -57,7 +75,7 @@ const Sign_up = ({isVisible,onClose}) => {
     }
 
     const handleFormData = (e)=>{
-        e.preventDefault();
+        
         const name = e.target.name;
         const value = e.target.value;
 
@@ -98,8 +116,8 @@ const Sign_up = ({isVisible,onClose}) => {
                             {errors.password && <p className='error-message'>{errors.password}</p>}
                         </div>
                         <div className='signup'>
-                            <input type="text" placeholder='Confirm Pasword' name='confirmPasword' value={formData.confirmPasword} onChange={handleFormData}/>
-                            {errors.confirmPasword && <p className='error-message'>{errors.confirmPasword}</p>}
+                            <input type="password" placeholder='Confirm password' name='confirmPassword' value={formData.confirmPasword} onChange={handleFormData}/>
+                            {errors.confirmPassword && <p className='error-message'>{errors.confirmPassword}</p>}
                         </div>
                         <div className='signup'>
                             <input type="email" placeholder='Email' name='email' value={formData.email} onChange={handleFormData}/>

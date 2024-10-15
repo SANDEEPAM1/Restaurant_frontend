@@ -20,6 +20,7 @@
 //     { imageUrl: '/images/Pancakes.jpg', titel: "Pancakes", description: "Fluffy pancakes with syrup and butter", price: 10 },
 //     { imageUrl: '/images/Milkshake.jpg', titel: "Milkshake", description: "Creamy vanilla milkshake", price: 7 }
 //   ];
+
   var cardInfor = [
     { imageUrl: '/images/chickenRoles.jpg', titel: "Chicken Roles", description: "Delicious chicken rolls with tomato sauce", price: 15, category: "rice" },
     { imageUrl: '/images/frideRice.jpg', titel: "Fried Rice", description: "Fried rice with vegetables and chicken", price: 20, category: "rice" },

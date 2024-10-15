@@ -18,8 +18,8 @@ const Log_in = ({isVisible,onClose}) => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         navigate('/')
-        console.log(loginData)
-        setLoginData
+        //console.log(loginData)
+        onClose();
     }
 
 const handleLoginData = (e) =>{
