@@ -19,7 +19,7 @@ function Card(props) {
 
         <div className="flex justify-between p-1 title">
                 <h1 className='font-serif text-2xl font-bold line-clamp-1'> 
-                  {props.titel}
+                  {props.title}
                 </h1>
                 <h2>Rating Feild</h2>
                 
