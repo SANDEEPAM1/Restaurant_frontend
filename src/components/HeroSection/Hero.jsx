@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 
 
 const Hero = () => {
-  const buttonName = "Click Me"
+  const buttonName = "Login"
   return (
     <>
     <div className=" bg-[url('/bgpicture.jpg')] h-[90vh] bg-cover relative " >

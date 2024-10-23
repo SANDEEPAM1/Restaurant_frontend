@@ -25,7 +25,7 @@ function CardMount(props) {
             <Card
               key={index}
               imageUrl={itme.imageUrl}
-              titel ={itme.titel}
+              title ={itme.title}
               description ={itme.description}
               price = {itme.price}
             />

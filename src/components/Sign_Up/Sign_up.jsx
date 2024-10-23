@@ -65,13 +65,8 @@ const Sign_up = ({isVisible,onClose}) => {
             } else {
                 console.error("Unexpected error structure:", error); // Log unexpected errors
             }
-            setErrors(validationError)
-            
-        }
-
-
-
-        
+            setErrors(validationError)  
+        } 
     }
 
     const handleFormData = (e)=>{
@@ -82,8 +77,7 @@ const Sign_up = ({isVisible,onClose}) => {
         setFormData({
             ...formData,
             [name]:value
-        })
-        
+        })  
     }
 
     //bg-gradient-to-b from-black/90 via-black/30 to-black/60
