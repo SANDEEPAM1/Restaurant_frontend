@@ -7,9 +7,12 @@ import Order from './pages/Order.jsx'
 import Reservation from './pages/Reservation.jsx'
 import Offers from './pages/Offers.jsx'
 import Galary from './pages/Galary.jsx'
+import KictchenDisplay from './pages/KictchenDisplay.jsx'
+import Admin from './pages/Admin.jsx'
 import {createBrowserRouter,RouterProvider } from 'react-router-dom'
 import routes from './Routes/UrlRoutes.jsx'
 import './index.css'
+
 
 
 const router = createBrowserRouter([
@@ -42,13 +45,16 @@ const router = createBrowserRouter([
           element:<Galary/>
       }
   ]
-    // children:routes.map((route,index)=>{
-    //     return {path:route.path,
-    //       element:<route.page/>
-    //     }
-    // })
-
+  },
+  {
+    path:"/kitchen",
+    element:<KictchenDisplay/>
+  },
+  {
+    path:"/Admin",
+    element:<Admin/>
   }
+
 ])
 
 createRoot(document.getElementById('root')).render(
