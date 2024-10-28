@@ -35,7 +35,7 @@ function App() {
     <Outlet/>
     <Footer/>
     <Sign_up isVisible={isSignUpVisible} onClose={handleCloseSignUp}/>
-    <Log_in isVisible={isLoginVisible} onClose={handleCloseLogin}/>
+    <Log_in isVisible={isLoginVisible} onClose={handleCloseLogin}/> 
     </CatagoryProvider>
     </>
   )
