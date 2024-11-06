@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function MenuItems() {
     const [menuItem,setMenuItems] = useState([])
-    
+    const navigate = useNavigate();
     useEffect(()=>{
       
       const fetchData = async ()=>{
@@ -15,7 +16,7 @@ function MenuItems() {
             if(data !== null){
               setMenuItems(data)
             }
-            console.log( "from testData",menuItem)
+            
         } catch (error) {
             console.log("something went wrong",error)
         }
@@ -40,6 +41,12 @@ function MenuItems() {
     const handleDelete = (id) =>{
       console.log("from handle button ",id)
       deletRow(id); 
+      
+    }
+
+    const handleEdit = (id) =>{
+      
+      navigate(`/Admin/Update/${id}`)
       
     }
 

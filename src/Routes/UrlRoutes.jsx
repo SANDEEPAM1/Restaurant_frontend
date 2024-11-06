@@ -12,6 +12,7 @@ import Offers from '../pages/Offers.jsx'
 import Galary from '../pages/Galary.jsx'
 import KictchenDisplay from '../pages/KictchenDisplay.jsx'
 import ViewOrders from '../components/Admin/ViewOrders.jsx'
+import Update from '../components/Admin/Update.jsx'
 
 // navbar urls
 const routes =[
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         {
           path:"/Admin/physicalTables",
           element:<PhyaicalTables/>
+        },
+        {
+          path:"/Admin/Update/:menuItemId",
+          element:<Update/>
         }
   
       ]
