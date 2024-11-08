@@ -1,5 +1,12 @@
 .link{
     @apply mx-[2%] w-auto text-black text-xl hover:text-white text-center hover:bg-neutral-600 px-5 py-2 ;
     @apply  transition duration-300 transform rounded-[20px] hover:scale-105;
-    @apply active:bg-gray-700 hover:shadow-lg hover:shadow-gray-600
+    @apply active:bg-gray-700 hover:shadow-lg hover:shadow-gray-600 hover:no-underline
+}
+.active-link{
+    @apply w-full h-10 ml-8 text-xl text-center text-black bg-white border-l-2 border-black rounded-xl border-y-2 hover:no-underline hover:text-black ;
+    @apply  font-bold scale-110;
+}
+.active-mainNav-link{
+    @apply  scale-105 hover:no-underline hover:text-black font-bold
 }

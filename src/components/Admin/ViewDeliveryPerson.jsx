@@ -2,20 +2,25 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 
-const ViewOrders = () => {
-    const [orders,setOrders] = useState([])
+const ViewDeliveryPerson = () => {
+    const [DeliveryPerson,setDeliveryPerson] = useState([])
+    
+    
+
+      
+        
     
     useEffect(()=>{
       
       const fetchData = async ()=>{
         try {
-            var response = await axios.get("https://localhost:7298/getOnlineOrders")
+            var response = await axios.get("https://localhost:7298/getDeliveryPersons")
             var data = response.data;
             console.log(data)
             if(data !== null){
-              setOrders(data)
+              setDeliveryPerson(data)
             }
-            console.log( "from testData",orders)
+            console.log( "from testData",DeliveryPerson)
         } catch (error) {
             console.log("something went wrong",error)
         }
@@ -25,12 +30,12 @@ const ViewOrders = () => {
          const intervalId = setInterval(fetchData, 5000);
          return () => clearInterval(intervalId);
 
-        //setOrders(testData)
+        //setDeliveryPerson(testData)
     },[])
     
     const deletRow = async (id) =>{
       try {
-        var response = await axios.delete(`https://localhost:7298/deleteOrder/${id}`)
+        var response = await axios.delete(`https://localhost:7298/deleteDeliveryPerson/${id}`)
         console.log(response.data)
       } catch (error) {
         console.log("something went wrong",error)
@@ -49,13 +54,10 @@ const ViewOrders = () => {
       <table className="w-full text-left border-spacing-y-2">
         <thead>
           <tr className="h-12 text-lg font-semibold text-white bg-orange-600">
-            <th className="w-20 p-4">Order ID</th>
-            <th className="w-32 p-4">Customer ID</th>
-            <th className="w-40 p-4">Order Time</th>
-            <th className="w-20 p-4">Status</th>
-            <th className="w-32 p-4">Delivery Type</th>
-            <th className="w-32 p-4">Delivery Person ID</th>
-            <th className="w-32 p-4">Phone Number</th>
+            <th className="w-20 p-4">DeliveryPerson ID</th>
+            <th className="w-32 p-4">Full Name</th>
+            <th className="w-40 p-4">Phone Number</th>
+            <th className="w-32 p-4">IsAvailabel</th>
             <th className="w-20 p-4">
               <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700">
                 Delete All
@@ -64,20 +66,17 @@ const ViewOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((item) => (
+          {DeliveryPerson.map((item) => (
             <tr
-              key={item.orderId}
+              key={item.deliveryPersonId}
               className="h-12 text-white align-middle bg-gray-800 rounded-lg hover:bg-gray-700"
             >
-              <td className="p-4">{item.orderId}</td>
-              <td className="p-4">{item.customerId}</td>
-              <td className="p-4">{item.orderTime}</td>
-              <td className="p-4">{item.status}</td>
-              <td className="p-4">{item.deliveryType}</td>
-              <td className="p-4">{item.deliveryPerosnId ? item.deliveryPerosnId : 'not a delivery'}</td>
+              <td className="p-4">{item.deliveryPersonId}</td>
+              <td className="p-4">{item.fullName}</td>
               <td className="p-4">{item.phoneNumber}</td>
+              <td className="p-4">{item.isAvailable? "yes":"no"}</td>
               <td className="p-4">
-                <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700" onClick={()=>handleDelete(item.orderId)}>
+                <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700" onClick={()=>handleDelete(item.deliveryPersonId)}>
                   Delete
                 </button>
               </td>
@@ -90,4 +89,4 @@ const ViewOrders = () => {
   )
 }
 
-export default ViewOrders
+export default ViewDeliveryPerson

@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../../assets/logo.png'
 import './NavBar.css'
 import { Link, NavLink } from 'react-router-dom'
-import routes from '../../Routes/UrlRoutes'
+import {routes} from '../../Routes/UrlRoutes'
 
 function NavBar({onSignUpClick,onLoginClick}) {
   return (
@@ -13,7 +13,7 @@ function NavBar({onSignUpClick,onLoginClick}) {
         </div>
         <div className="links  w-[70%] flex justify-center">
             {routes.map((route, index)=>{
-                return <NavLink to={route.path} key={index} className='link'>{route.page}</NavLink>
+                return <NavLink to={route.path} key={index} className={({isActive})=>(isActive? 'active-mainNav-link':'link')}>{route.page}</NavLink>
             })}
         </div>
 
