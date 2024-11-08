@@ -1,9 +1,12 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const PhyaicalTables = () => {
-  const [DeliveryPerson,setDeliveryPerson] = useState([])
+  const [PhysicalTable,setPhysicalTable] = useState([])
     
-    
+    const navigate = useNavigate();
 
       
         
@@ -12,13 +15,13 @@ const PhyaicalTables = () => {
     
     const fetchData = async ()=>{
       try {
-          var response = await axios.get("https://localhost:7298/getDeliveryPersons")
+          var response = await axios.get("https://localhost:7298/getAllTables")
           var data = response.data;
           console.log(data)
           if(data !== null){
-            setDeliveryPerson(data)
+            setPhysicalTable(data)
           }
-          console.log( "from testData",DeliveryPerson)
+          console.log( "from testData",PhysicalTable)
       } catch (error) {
           console.log("something went wrong",error)
       }
@@ -33,7 +36,7 @@ const PhyaicalTables = () => {
   
   const deletRow = async (id) =>{
     try {
-      var response = await axios.delete(`https://localhost:7298/deleteDeliveryPerson/${id}`)
+      var response = await axios.delete(`https://localhost:7298/deletePhyTable/${id}`)
       console.log(response.data)
     } catch (error) {
       console.log("something went wrong",error)
@@ -45,6 +48,9 @@ const PhyaicalTables = () => {
     deletRow(id); 
     
   }
+  const handleEdit = (id) =>{
+    navigate(`/Admin/UpdateTable/${id}`)
+  }
 
 return (
   <>
@@ -52,32 +58,38 @@ return (
     <table className="w-full text-left border-spacing-y-2">
       <thead>
         <tr className="h-12 text-lg font-semibold text-white bg-orange-600">
-          <th className="w-20 p-4">DeliveryPerson ID</th>
-          <th className="w-32 p-4">Full Name</th>
-          <th className="w-40 p-4">Phone Number</th>
+          <th className="w-20 p-4">PhysicalTable ID</th>
+          <th className="w-32 p-4">Table Number</th>
+          <th className="w-40 p-4">Seats</th>
+          <th className="w-40 p-4">Location</th>
+          <th className="w-40 p-4">Speacial Features</th>
           <th className="w-32 p-4">IsAvailabel</th>
-          <th className="w-20 p-4">
-            <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700">
-              Delete All
-            </button>
-          </th>
+          <th className="w-20 p-4"></th>
+          <th className="w-20 p-4"></th>
         </tr>
       </thead>
       <tbody>
-        {DeliveryPerson.map((item) => (
+        {PhysicalTable.map((item) => (
           <tr
-            key={item.deliveryPersonId}
+            key={item.tableId}
             className="h-12 text-white align-middle bg-gray-800 rounded-lg hover:bg-gray-700"
           >
-            <td className="p-4">{item.deliveryPersonId}</td>
-            <td className="p-4">{item.fullName}</td>
-            <td className="p-4">{item.phoneNumber}</td>
+            <td className="p-4">{item.tableId}</td>
+            <td className="p-4">{item.tableNumber}</td>
+            <td className="p-4">{item.seats}</td>
+            <td className="p-4">{item.location}</td>
+            <td className="p-4">{item.specialFeature}</td>
             <td className="p-4">{item.isAvailable? "yes":"no"}</td>
             <td className="p-4">
-              <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700" onClick={()=>handleDelete(item.deliveryPersonId)}>
+              <button className="px-3 py-1 text-white bg-red-600 rounded hover:bg-red-700" onClick={()=>handleDelete(item.tableId)}>
                 Delete
               </button>
             </td>
+            <td className="p-4">
+                <button className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-700" onClick={()=>handleEdit(item.tableId)}>
+                  Edit
+                </button>
+              </td>
           </tr>
         ))}
       </tbody>

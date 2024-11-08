@@ -13,6 +13,7 @@ import Galary from '../pages/Galary.jsx'
 import KictchenDisplay from '../pages/KictchenDisplay.jsx'
 import ViewOrders from '../components/Admin/ViewOrders.jsx'
 import Update from '../components/Admin/Update.jsx'
+import UpdateTables from '../components/Admin/UpdateTables.jsx'
 
 // navbar urls
 const routes =[
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
         {
           path:"/Admin/Update/:menuItemId",
           element:<Update/>
+        },
+        {
+          path:"/Admin/UpdateTable/:tableId",
+          element:<UpdateTables/>
         }
   
       ]
