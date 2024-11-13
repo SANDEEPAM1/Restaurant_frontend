@@ -1,7 +1,7 @@
 import React from 'react'
-import buns from '../../assets/chicken.jpg'
-import bun2 from '../../assets/buns.jpg'
-import bun3 from '../../assets/dsds.jpg'
+import colorstar from '../../assets/star.png'
+import nonColorstar from '../../assets/starnoncolor.png'
+import { FaCartArrowDown } from "react-icons/fa";
 
 import './Card.css'
 
@@ -21,16 +21,24 @@ function Card(props) {
                 <h1 className='font-serif text-2xl font-bold line-clamp-1'> 
                   {props.title}
                 </h1>
-                <h2>Rating Feild</h2>
+                <div className='flex'>
                 
+                <img src={colorstar} alt="Description of image" className='h-4 '/>
+                <img src={colorstar} alt="Description of image" className='h-4 '/>
+                <img src={colorstar} alt="Description of image" className='h-4 '/>
+                <img src={nonColorstar} alt="Description of image" className='h-4 '/>
+                <img src={nonColorstar} alt="Description of image" className='h-4 '/>
+            
+                </div>
         </div>
 
         <div className='w-full p-1 overflow-auto description'>
             <p className=''>{props.description}</p>
         </div>
 
-        <div className='p-1 text-orange-500 price'>
+        <div className='flex justify-between p-1 text-orange-500 price'>
           ${props.price}
+          <FaCartArrowDown className='mr-4 w-14 '/>
         </div>
         
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Border from '../components/Border/Border'
+import Border from '../Border/Border'
 // import outdoor from '../assets/outdoor.jpg'
 // import indoor from '../assets/indoor.jpg'
 // import viewpoint from '../assets/viewpoint.jpg'

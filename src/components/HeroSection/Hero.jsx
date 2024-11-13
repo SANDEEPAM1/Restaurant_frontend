@@ -17,7 +17,7 @@ const Hero = () => {
               </div>
              
 
-              <p className='text-white paragraph bottom-[5vh] text'>WELCOME TO <span className='text-[6vh] text-pink-600 block font-bold'>FOODHAVEN</span> </p>
+              <p className='text-white paragraph bottom-[5vh] text'>WELCOME TO <span className='text-[6vh] text-pink-600 block font-bold'>FOOD HEAVEN</span> </p>
               
            </div>
         </div>
