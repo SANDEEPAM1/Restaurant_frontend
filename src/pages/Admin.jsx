@@ -14,6 +14,7 @@ const Admin = () => {
       <button> <IoMdMenu className='mx-3 my-2 text-4xl'/></button>
       <IoPerson className='mx-3 my-2 text-4xl'/>
         <IoIosNotificationsOutline className='mx-3 my-2 text-4xl'/> 
+        <h1 className='mr-[600px] mt-2 font-bold text-4xl'>Admin Dashboard</h1>
         </header>
 
         <div className="flex main-contain ">

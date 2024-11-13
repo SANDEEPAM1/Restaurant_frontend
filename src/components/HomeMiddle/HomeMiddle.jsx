@@ -1,6 +1,6 @@
 import React from "react";
 import vedioClip from "../../assets/resturantTour.mp4";
-import plate from "../../assets/dsds.jpg"  
+import plate from "../../assets/tv.png"
 import Button from "../Button/Button";
 
 function HomeMiddle() {
@@ -8,12 +8,12 @@ function HomeMiddle() {
     //bg-gradient-to-b from-gray-900 via-gray-700 to-gray-500
   return (
     <div className="relative flex items-center gap-4 justify-between w-full h-[30%] bg-black">
-      <div className="mx-auto flex flex-col w-[25%] items-center justify-center py-4">
+      <div className="mx-auto flex flex-col w-[30%] items-center justify-center py-4">
         <img src={plate} className=""/>
       </div>
 
-      <div className="absolute  top-[20%] w-[25%] right-[60%] rounded-md ">
-        <video className="rounded-md " autoPlay loop muted>
+      <div className="absolute   top-[23%] w-[30%] right-[52.8%] rounded-md ">
+        <video className=" runded-md w-80" autoPlay loop muted>
           <source src={vedioClip} type="video/mp4" />
         </video>
       </div>
