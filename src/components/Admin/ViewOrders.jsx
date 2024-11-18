@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import axiosInstance from '../../Utility/api'
 
 
 const ViewOrders = () => {
@@ -9,7 +10,7 @@ const ViewOrders = () => {
       
       const fetchData = async ()=>{
         try {
-            var response = await axios.get("https://localhost:7298/getOnlineOrders")
+            var response = await axiosInstance.get("/getOnlineOrders")
             var data = response.data;
             console.log(data)
             if(data !== null){

@@ -14,6 +14,8 @@ import KictchenDisplay from '../pages/KictchenDisplay.jsx'
 import ViewOrders from '../components/Admin/ViewOrders.jsx'
 import Update from '../components/Admin/Update.jsx'
 import UpdateTables from '../components/Admin/UpdateTables.jsx'
+import AboutUs from '../pages/AboutUs.jsx'
+import ProtectedRoutes from './ProtectedRoutes.jsx'
 
 // navbar urls
 const routes =[
@@ -68,16 +70,27 @@ const router = createBrowserRouter([
         {
             path:'/gallary',
             element:<Galary/>
+        },
+        {
+            path:'/aboutUs',
+            element:<AboutUs/>
         }
     ]
     },
     {
       path:"/kitchen",
-      element:<KictchenDisplay/>
+      element:
+      <ProtectedRoutes requireRole='Chef'>
+        <KictchenDisplay/>
+      </ProtectedRoutes>
     },
     {
       path:"/Admin",
-      element:<Admin/>,
+      element:
+      <ProtectedRoutes requireRole='Admin'>
+        <Admin/>
+      </ProtectedRoutes>
+      ,
       children:[
         {
           path:"/Admin/viewOrders",

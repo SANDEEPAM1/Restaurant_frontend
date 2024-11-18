@@ -5,11 +5,19 @@ import './Sign_up.css'
 import { Navigate, useNavigate } from 'react-router-dom'
 import * as Yep from 'yup'
 import axios from 'axios'
+import { useAuth } from '../../context/AuthContext'
+import { FaRegEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5"
 
 
-const Sign_up = ({isVisible,onClose}) => {
+const Sign_up = () => {
+
+    
     const buttonName = "Create"
     const navigate = useNavigate();
+    const {isSignUpVisible,handleCloseSignUp} = useAuth();
+    const [passwordIcon, setPasswordIcon] = useState('password');
+    const [confirmPasswordIcon, setConfirmPasswordIcon] = useState('password')
     const [formData, setFormData] = useState({
         username:"",
         password:"",
@@ -80,16 +88,34 @@ const Sign_up = ({isVisible,onClose}) => {
         })  
     }
 
+    const handlePasswordIcon = (e) =>{
+        e.preventDefault();
+            if(passwordIcon === 'password'){
+                setPasswordIcon('text') 
+            }else{
+                setPasswordIcon('password')
+            }
+    }
+    const handleConfirmPasswordIcon = (e) =>{
+        e.preventDefault();
+            if(confirmPasswordIcon === 'password'){
+                setConfirmPasswordIcon('text') 
+            }else{
+                setConfirmPasswordIcon('password')
+            }
+    }
+
+
     //bg-gradient-to-b from-black/90 via-black/30 to-black/60
   return (
         <>
         
         {  
-        isVisible ?
+        isSignUpVisible ?
 
             (
             <>
-            <div className='overlay' onClick={onClose}></div>
+            <div className='overlay' onClick={handleCloseSignUp}></div>
             
             <div className='popup-container '>
             <div className='border-[4px]  border-red-700 bg-[#d1b891] w-[50vh] h-[75vh] z-10'>
@@ -105,13 +131,15 @@ const Sign_up = ({isVisible,onClose}) => {
                             <input type="text" placeholder='UserName' name='username' value={formData.username} onChange={handleFormData}/>
                             {errors.username && <p className='error-message'>{errors.username}</p>}
                         </div>
-                        <div className='signup'>
-                            <input type="text" placeholder='Password' name='password' value={formData.password} onChange={handleFormData}/>
+                        <div className='relative signup'>
+                            <input type={passwordIcon} placeholder='Password' name='password' value={formData.password} className='border-none' onChange={handleFormData}/>
                             {errors.password && <p className='error-message'>{errors.password}</p>}
+                           <button className='absolute right-3 top-4' onClick={handlePasswordIcon}> {passwordIcon==='password' ?<IoEyeOff className='w-7'/> :<FaRegEye className='w-7'/> }</button>
                         </div>
-                        <div className='signup'>
-                            <input type="password" placeholder='Confirm password' name='confirmPassword' value={formData.confirmPasword} onChange={handleFormData}/>
+                        <div className='relative signup'>
+                            <input type={confirmPasswordIcon} placeholder='Confirm password' name='confirmPassword' value={formData.confirmPasword} onChange={handleFormData}/>
                             {errors.confirmPassword && <p className='error-message'>{errors.confirmPassword}</p>}
+                            <button className='absolute right-3 top-4' onClick={handleConfirmPasswordIcon}> {confirmPasswordIcon==='password' ?<IoEyeOff className='w-7'/> :<FaRegEye className='w-7'/> }</button>
                         </div>
                         <div className='signup'>
                             <input type="email" placeholder='Email' name='email' value={formData.email} onChange={handleFormData}/>

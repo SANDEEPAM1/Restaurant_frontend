@@ -18,7 +18,7 @@ function Footer() {
          <div className="text ">
           <img src={logo} alt="" className='h-[20vh]'/>
           <div className='text-[6vh] text-pink-600 block font-bold'> FOOD HEAVEN</div>
-          <h1 className='font-bold text-white'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enjoy the beautiful moment in your life with excelent meals and entertain music. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, tempore!
+          <h1 className='font-bold text-white'> Experience the perfect blend of exquisite flavors and captivating ambiance at our restaurant. Savor every moment with exceptional dishes crafted to perfection and live music that soothes your soul. Enjoy an unforgettable dining experience today!
             
           </h1>
          </div>

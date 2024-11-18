@@ -6,37 +6,41 @@ import Border from './components/Border/Border.jsx'
 import { CatagoryProvider } from './context/CatagoryContext.jsx'
 import Sign_up from './components/Sign_Up/Sign_up.jsx'
 import Log_in from './components/Log_in/Log_in.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
 
 function App() {
-    const [isSignUpVisible, setIsSignUpVisible] = useState(false)
-    const [isLoginVisible, setIsLoginVisible] = useState(false)
+  //   const [isSignUpVisible, setIsSignUpVisible] = useState(false)
+  //   const [isLoginVisible, setIsLoginVisible] = useState(false)
 
 
-  const handleLogin = () =>{
-    setIsLoginVisible(true)
-  }
-  const handleCloseLogin = () =>{
-    setIsLoginVisible(false)
-  }
+  // const handleLogin = () =>{
+  //   setIsLoginVisible(true)
+  // }
+  // const handleCloseLogin = () =>{
+  //   setIsLoginVisible(false)
+  // }
 
-  const handleSignUp = () =>{
-    setIsSignUpVisible(true)
-  }
+  // const handleSignUp = () =>{
+  //   setIsSignUpVisible(true)
+  // }
 
-  const handleCloseSignUp = () =>{
-    setIsSignUpVisible(false);
-  }
+  // const handleCloseSignUp = () =>{
+  //   setIsSignUpVisible(false);
+  // }
+  
 
   return (
     <>
-    <CatagoryProvider>
-    <NavBar onSignUpClick={handleSignUp} onLoginClick={handleLogin}/>
+    <AuthProvider>
+      <CatagoryProvider>
+    <NavBar/>
     <Border/>
     <Outlet/>
     <Footer/>
-    <Sign_up isVisible={isSignUpVisible} onClose={handleCloseSignUp}/>
-    <Log_in isVisible={isLoginVisible} onClose={handleCloseLogin}/> 
-    </CatagoryProvider>
+    <Sign_up/>
+    <Log_in/> 
+      </CatagoryProvider>
+    </AuthProvider>
     </>
   )
 }
