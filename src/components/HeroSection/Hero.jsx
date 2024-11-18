@@ -1,9 +1,13 @@
 import React from 'react'
 import './Hero.css'
 import Button from '../Button/Button'
+import { useAuth } from '../../context/AuthContext'
 
 
 const Hero = () => {
+  
+const {handelLogin} = useAuth();
+  
   const buttonName = "Login"
   return (
     <>
@@ -13,7 +17,7 @@ const Hero = () => {
            <div className='relative flex flex-col items-center justify-center h-full'>
               <h1 className='text-white header'>  Where Fresh Meets Flavor, and Every Bite is Delicious</h1>
               <div className='z-10  absolute bottom-[33vh] '>
-              <Button name={buttonName}/>
+              <Button name={buttonName} onClick={handelLogin}/>
               </div>
              
 

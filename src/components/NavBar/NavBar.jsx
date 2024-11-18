@@ -3,8 +3,12 @@ import logo from '../../assets/logo.png'
 import './NavBar.css'
 import { Link, NavLink } from 'react-router-dom'
 import {routes} from '../../Routes/UrlRoutes'
+import { useAuth } from '../../context/AuthContext'
 
-function NavBar({onSignUpClick,onLoginClick}) {
+function NavBar() {
+
+  const {handelLogin, handleSignUp} = useAuth();
+  
   return (
     <>
     <div className="  flex w-[100%] justify-between items-center h-[10vh] bg-[#c1c19d] ">
@@ -20,11 +24,11 @@ function NavBar({onSignUpClick,onLoginClick}) {
         <div className='flex w-[20%]'>
 
         <div className='w-[40%]  link'>
-              <button className='w-full text-xl rounded-full' onClick={onSignUpClick}>Sign Up</button>
+              <button className='w-full text-xl rounded-full' onClick={handleSignUp}>Sign Up</button>
             </div>
             
             <div className='w-[40%]  link'>
-              <button className='w-full text-xl rounded-full' onClick={onLoginClick}>Sign In</button>
+              <button className='w-full text-xl rounded-full' onClick={handelLogin}>Sign In</button>
             </div>
         </div>
 

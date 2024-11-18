@@ -1,11 +1,20 @@
 import React from "react";
 import vedioClip from "../../assets/resturantTour.mp4";
 import plate from "../../assets/tv.png"
-import Button from "../Button/Button";
+import Button from "../Button/Button"
+import { useNavigate } from "react-router-dom";
 
 function HomeMiddle() {
     const buttonName ="About Us"
     //bg-gradient-to-b from-gray-900 via-gray-700 to-gray-500
+
+    const navigate = useNavigate();
+    
+    const handelAboutus = () =>{
+      navigate('/aboutUs');
+    }
+
+    
   return (
     <div className="relative flex items-center gap-4 justify-between w-full h-[30%] bg-black">
       <div className="mx-auto flex flex-col w-[30%] items-center justify-center py-4">
@@ -22,7 +31,7 @@ function HomeMiddle() {
              <h1>Discover the story behind our passion for great food and service</h1>
         </div>
         <div className="">
-            <Button name={buttonName}/>
+            <Button name={buttonName} onClick={handelAboutus}/>
         </div>
       </div>
 

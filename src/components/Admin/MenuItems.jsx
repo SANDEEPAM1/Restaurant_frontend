@@ -2,6 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import axiosInstance from '../../Utility/api'
 
 function MenuItems() {
     const [menuItem,setMenuItems] = useState([])
@@ -10,7 +11,8 @@ function MenuItems() {
       
       const fetchData = async ()=>{
         try {
-            var response = await axios.get("https://localhost:7298/getMenu")
+          
+            var response = await axiosInstance.get("/getMenu")
             var data = response.data;
             console.log(data)
             if(data !== null){

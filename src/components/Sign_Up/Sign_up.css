@@ -12,6 +12,7 @@ input::placeholder{
 }
 .signup{
     @apply w-[80%] h-[7vh] border-black border-[2px] rounded-xl shadow-md shadow-slate-900 transition transform hover:scale-105 duration-300;
+    
 }
 .overlay {
     position: fixed;

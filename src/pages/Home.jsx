@@ -1,19 +1,14 @@
 import React, { useEffect,useState } from 'react'
-
 import Hero from '../components/HeroSection/Hero'
 import Border from '../components/Border/Border'
-
-
 import HomeMiddle from '../components/HomeMiddle/HomeMiddle'
-
 import CardMount from '../components/CardMount/CardMount'
-
 import TestData from '../components/TestData/TestData'
 import axios from 'axios'
 
 
 
-const Home = () => {
+const Home = (onLoginClick) => {
 const [cardData, setCardData] = useState([])
   
   const  fetchData = async()=>{
@@ -34,7 +29,7 @@ const [cardData, setCardData] = useState([])
   return (
     <>
     
-    <Hero/>
+    <Hero onLoginClick={onLoginClick}/>
     <Border/>
     <HomeMiddle/>
     <Border/>
