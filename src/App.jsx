@@ -8,6 +8,7 @@ import Sign_up from './components/Sign_Up/Sign_up.jsx'
 import Log_in from './components/Log_in/Log_in.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 
+
 function App() {
   //   const [isSignUpVisible, setIsSignUpVisible] = useState(false)
   //   const [isLoginVisible, setIsLoginVisible] = useState(false)
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <>
+    
     <AuthProvider>
       <CatagoryProvider>
     <NavBar/>
@@ -41,6 +43,7 @@ function App() {
     <Log_in/> 
       </CatagoryProvider>
     </AuthProvider>
+   
     </>
   )
 }

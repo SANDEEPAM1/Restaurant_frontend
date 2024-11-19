@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from '../../assets/logo.png'
 import './Footer.css'
 import { FaFacebook } from "react-icons/fa";
@@ -6,11 +6,13 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
+import { cartContext } from '../../context/CartContext';
 
 
 
 function Footer() {
-  
+  const {cart} = useContext(cartContext)
+  console.log("cart from footer",cart)
   return (
     <>
     <div className='bg-black footerContainer'>
@@ -43,7 +45,7 @@ function Footer() {
           <h1 className='text-2xl'>Contact Us:</h1>
           <ul className='mt-5 ml-5'>
           <li><h2>+94 716164084</h2></li>
-          <li><h2 className=''><a href="" className='text-base'>foodheaven@gmail.com</a></h2></li>
+          <li><h2><a href="" className='text-base'>foodheaven@gmail.com</a></h2></li>
           </ul>
          </div>
          </div>

@@ -16,6 +16,7 @@ const [cardData, setCardData] = useState([])
       var data = await  axios.get("https://localhost:7298/getCardDetails");
      var data1 = data.data
       setCardData(data1)
+    
 
     } catch (error) {
       console.log(error)
