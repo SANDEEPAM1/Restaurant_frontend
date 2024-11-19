@@ -33,7 +33,7 @@ function App() {
   return (
     <>
     
-    <AuthProvider>
+    
       <CatagoryProvider>
     <NavBar/>
     <Border/>
@@ -42,7 +42,7 @@ function App() {
     <Sign_up/>
     <Log_in/> 
       </CatagoryProvider>
-    </AuthProvider>
+
    
     </>
   )

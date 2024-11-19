@@ -25,3 +25,15 @@ export const getUserRole = () =>{
         return null;
     }
 };
+
+export const getUserId = () => {
+    const token = localStorage.getItem('jwt');
+    if (!token) return null;
+
+    try {
+        const decodejwt = jwtDecode(token);
+        return decodejwt.UserId; // Replace with the correct property for userId in your token
+    } catch (error) {
+        return null;
+    }
+};
