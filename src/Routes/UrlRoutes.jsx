@@ -16,6 +16,10 @@ import Update from '../components/Admin/Update.jsx'
 import UpdateTables from '../components/Admin/UpdateTables.jsx'
 import AboutUs from '../pages/AboutUs.jsx'
 import ProtectedRoutes from './ProtectedRoutes.jsx'
+import Sign_up from '../components/Sign_Up/Sign_up.jsx'
+import CustomerProfile from '../pages/CustomerProfile.jsx'
+import Cart from '../components/Customer/Cart.jsx'
+import OrderPayments from '../components/Payments/OrderPayments.jsx'
 
 // navbar urls
 const routes =[
@@ -38,6 +42,10 @@ const routes =[
     {
         path:'/gallary',
         page:'Gallary'
+    },
+    {
+      path:'/Customer',
+      page:"profile"
     }
 ]
 
@@ -118,11 +126,26 @@ const router = createBrowserRouter([
         }
   
       ]
+    },
+    {
+      path:"/Customer",
+      element:<CustomerProfile/>,
+      children:[
+        {
+          path:"cart",
+          element:<Cart/>
+        }
+      ]
+
     }
   
   ])
 
   const adminUrls = [
+    {
+      path:"/Admin",
+      title:"MainAdmin"
+    },
     {
         path:"/Admin/viewOrders",
         title:"Orders"
@@ -141,4 +164,12 @@ const router = createBrowserRouter([
     }
   ]
 
-  export {router,routes,adminUrls}
+  const customerUrls = [
+    {
+      path:"/Customer/cart",
+      title:"Cart"
+      
+    }
+  ]
+
+  export {router,routes,adminUrls,customerUrls}

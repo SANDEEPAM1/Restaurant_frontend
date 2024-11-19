@@ -16,6 +16,7 @@ function CardMount(props) {
     //     )
     //  })
     
+    
   return (
     <>
     <div className='mx-3 overflow-auto cardContainer'>
@@ -24,6 +25,7 @@ function CardMount(props) {
             <div className='card'>
             <Card
               key={index}
+              id ={itme.menuItemId}
               imageUrl={itme.imageUrl}
               title ={itme.title}
               description ={itme.description}
