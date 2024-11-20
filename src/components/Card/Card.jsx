@@ -4,9 +4,38 @@ import nonColorstar from '../../assets/starnoncolor.png'
 import { FaCartArrowDown } from "react-icons/fa";
 import {cartContext} from '../../context/CartContext'
 import './Card.css' 
+import { showErrorToast,showSuccessToast } from '../../Utility/Toaster';
+import { getUserId, getUserRole } from '../../Utility/authUtility';
+
+
 
 function Card(props) {
  const {dispatch} = useContext(cartContext)
+
+ const handleAddToCart = () =>{
+  
+  const userId = getUserId();
+  const role = getUserRole();
+
+        
+        if (!userId) {
+            showErrorToast('You need to sign in first to add items to the cart.');
+            return;
+        }
+        if (role !== 'Customer') {
+            showErrorToast('Only customers can add items to the cart.');
+            return;
+        }
+
+  
+  dispatch({type:"Add",product: {
+    menuItemId: props.id, // Pass a unique ID
+    title: props.title,
+    price: props.price,
+    imageUrl: props.imageUrl
+}})
+    showSuccessToast(`${props.title} is added successfully to the cart`)
+ }
   return (
     <>
     <div className='  mt-5 ml-5 w-[80%] bg-gray-300 rounded-[10px] h-[350px] hover:shadow-lg hover:shadow-gray-700  transition transform hover:scale-105 duration-300 flex flex-col justify-between shadow-lg shadow-gray-500'>
@@ -36,12 +65,7 @@ function Card(props) {
 
         <div className='flex items-center justify-between p-1 text-orange-500 price'>
           ${props.price}
-         <button className='flex items-center p-2 rounded-md shadow-md bg-sky-600 hover:shadow-xl active:bg-sky-800' onClick={()=> dispatch({type:"Add",product: {
-            menuItemId: props.id, // Pass a unique ID
-            title: props.title,
-            price: props.price,
-            imageUrl: props.imageUrl
-        }})}> <FaCartArrowDown className='w-6 '/> Add to Cart </button>
+         <button className='flex items-center p-2 rounded-md shadow-md bg-sky-600 hover:shadow-xl active:bg-sky-800' onClick={()=>handleAddToCart() }> <FaCartArrowDown className='w-6 '/> Add to Cart </button>
         </div>
         
     </div>

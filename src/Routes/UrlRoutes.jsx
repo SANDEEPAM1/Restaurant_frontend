@@ -6,7 +6,6 @@ import MenuItems from '../components/Admin/MenuItems.jsx'
 import PhyaicalTables from '../components/Admin/PhyaicalTables.jsx'
 import Home from '../pages/Home.jsx'
 import Menu from '../pages/Menu.jsx'
-import Order from '../pages/Order.jsx'
 import Reservation from '../pages/Reservation.jsx'
 import Offers from '../pages/Offers.jsx'
 import Galary from '../pages/Galary.jsx'
@@ -19,7 +18,9 @@ import ProtectedRoutes from './ProtectedRoutes.jsx'
 import Sign_up from '../components/Sign_Up/Sign_up.jsx'
 import CustomerProfile from '../pages/CustomerProfile.jsx'
 import Cart from '../components/Customer/Cart.jsx'
-import OrderPayments from '../components/Payments/OrderPayments.jsx'
+import RequestReSetPassword from '../components/PasswordReset/RequestReSetPassword.jsx'
+import ResetPassword from '../components/PasswordReset/ResetPassword.jsx'
+
 
 // navbar urls
 const routes =[
@@ -42,11 +43,8 @@ const routes =[
     {
         path:'/gallary',
         page:'Gallary'
-    },
-    {
-      path:'/Customer',
-      page:"profile"
     }
+    
 ]
 
 // main router urls
@@ -64,10 +62,6 @@ const router = createBrowserRouter([
             element:<Menu/>
         },
         {
-            path:'/order',
-            element:<Order/>
-        },
-        {
             path:'/reservation',
             element:<Reservation/>
         },
@@ -82,6 +76,14 @@ const router = createBrowserRouter([
         {
             path:'/aboutUs',
             element:<AboutUs/>
+        },
+        {
+          path:'/requestResetPW',
+          element:<RequestReSetPassword/>
+        },
+        {
+          path:'/resetPassword',
+          element:<ResetPassword/>
         }
     ]
     },
@@ -129,7 +131,10 @@ const router = createBrowserRouter([
     },
     {
       path:"/Customer",
-      element:<CustomerProfile/>,
+      element:
+      <ProtectedRoutes requireRole='Customer'>
+      <CustomerProfile/>
+      </ProtectedRoutes>,
       children:[
         {
           path:"cart",
@@ -142,10 +147,7 @@ const router = createBrowserRouter([
   ])
 
   const adminUrls = [
-    {
-      path:"/Admin",
-      title:"MainAdmin"
-    },
+    
     {
         path:"/Admin/viewOrders",
         title:"Orders"

@@ -13,6 +13,14 @@ const CustomerProfile = () => {
     <>
     <div className="admin-pannel h-[100vh]">
         <header className='flex flex-row-reverse bg-gray-300 h-[7vh]'>
+          {/* Back to Home Button */}
+          <NavLink
+              to="/"
+              className="absolute px-3 py-1 text-sm text-white bg-blue-500 rounded top-4 left-3 hover:bg-black"
+          >
+              Back to Home
+          </NavLink>
+          
       <button> <IoMdMenu className='mx-3 my-2 text-4xl'/></button>
       <IoPerson className='mx-3 my-2 text-4xl'/>
         <IoIosNotificationsOutline className='mx-3 my-2 text-4xl'/> 

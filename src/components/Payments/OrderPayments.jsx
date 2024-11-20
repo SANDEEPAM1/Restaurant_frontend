@@ -92,11 +92,12 @@ const PaymentModal = () => {
             <div className="relative w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
                 {/* Close Button */}
                 <button
-                    
-                    className="absolute text-gray-500 top-3 right-3 hover:text-gray-700" onClick={()=>handleClose()}
-                >
-                    &times;
-                </button>
+    className="absolute p-2 text-white bg-red-600 rounded-sm hover:bg-red-700 active:bg-red-800 top-3 right-3 focus:outline-none"
+    onClick={() => handleClose()}
+>
+    &times;
+</button>
+
 
                 {/* Modal Title */}
                 <h2 className="mb-6 text-xl font-bold text-center">Enter Payment Details</h2>

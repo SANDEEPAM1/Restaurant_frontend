@@ -6,6 +6,8 @@
   import CartContextProvider from './context/CartContext.jsx'
   import PaymentProvider from './context/OrderPaymentContext.jsx'
   import { AuthProvider } from './context/AuthContext.jsx'
+import { Toaster } from 'react-hot-toast'
+  
 
 
 
@@ -14,6 +16,7 @@
     <AuthProvider>
       <CartContextProvider>
         <PaymentProvider>
+          <Toaster position='top-center'/>
           <RouterProvider router={router}/> 
         </PaymentProvider>
       </CartContextProvider>

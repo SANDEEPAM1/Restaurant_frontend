@@ -8,6 +8,9 @@ import axios from 'axios'
 import { useAuth } from '../../context/AuthContext'
 import { FaRegEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5"
+import { showToastPromise, showErrorToast } from '../../Utility/Toaster'
+import axiosInstance from '../../Utility/api'
+
 
 
 const Sign_up = () => {
@@ -15,7 +18,7 @@ const Sign_up = () => {
     
     const buttonName = "Create"
     const navigate = useNavigate();
-    const {isSignUpVisible,handleCloseSignUp} = useAuth();
+    const {isSignUpVisible,handleCloseSignUp, handelLogin} = useAuth();
     const [passwordIcon, setPasswordIcon] = useState('password');
     const [confirmPasswordIcon, setConfirmPasswordIcon] = useState('password')
     const [formData, setFormData] = useState({
@@ -48,7 +51,20 @@ const Sign_up = () => {
 
         try {
             await validationScheama.validate(formData,{abortEarly:false})
-            const response =await axios.post('https://localhost:7298/api/Auth/register',formData)
+           const response = await showToastPromise
+            (
+                 axiosInstance.post('/api/Auth/register',formData),
+                {
+                    loading: 'Creating your account...',
+                    success:'Registration successful! Please verify your email.',
+                    error: 'Registration failed. Please try again.',
+                },
+                {
+                   success:{
+                    duration:10000,
+                   }, 
+                }
+            );
             
             setFormData({
               username:'',
@@ -59,9 +75,8 @@ const Sign_up = () => {
         
             console.log(response.status)
             setErrors({});
-            alert("the account is created")
-            onClose();
-            navigate('/');
+            handleCloseSignUp();
+            
             
         } catch (error) {
             const validationError = {}
@@ -70,11 +85,13 @@ const Sign_up = () => {
                 error.inner.forEach((err) => {
                     validationError[err.path] = err.message;
                 });
+                showErrorToast('Registration faild. please try again')
             } else {
                 console.error("Unexpected error structure:", error); // Log unexpected errors
+                
             }
             setErrors(validationError)  
-        } 
+        }
     }
 
     const handleFormData = (e)=>{
@@ -152,7 +169,19 @@ const Sign_up = () => {
                                 onClick={handleSubmit}
                                 />
                                 </div>
-                                
+                                <div className="flex flex-col items-center mt-3 text-sm">
+    {/* Already Have an Account Link */}
+    <button
+        className="text-blue-500 hover:underline"
+        onClick={() => {
+            handleCloseSignUp(); // Close the signup modal
+            // Assuming you have a function in AuthContext to open the login modal
+            handelLogin(); // Open the login modal
+        }}
+    >
+        Already Have an Account? Log in
+    </button>
+</div>
                    </form> 
                 </div>     
 
