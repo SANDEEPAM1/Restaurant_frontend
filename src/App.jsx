@@ -6,7 +6,8 @@ import Border from './components/Border/Border.jsx'
 import { CatagoryProvider } from './context/CatagoryContext.jsx'
 import Sign_up from './components/Sign_Up/Sign_up.jsx'
 import Log_in from './components/Log_in/Log_in.jsx'
-import { AuthProvider } from './context/AuthContext.jsx'
+import { CommentProvider } from './context/CommentContext.jsx'
+import CommentModal from './components/Comment/Comment.jsx'
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
   return (
     <>
     
-    
+    <CommentProvider>
       <CatagoryProvider>
     <NavBar/>
     <Border/>
@@ -41,8 +42,9 @@ function App() {
     <Footer/>
     <Sign_up/>
     <Log_in/> 
+    <CommentModal/>
       </CatagoryProvider>
-
+    </CommentProvider>
    
     </>
   )

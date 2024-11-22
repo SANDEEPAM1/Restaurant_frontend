@@ -20,6 +20,7 @@ import CustomerProfile from '../pages/CustomerProfile.jsx'
 import Cart from '../components/Customer/Cart.jsx'
 import RequestReSetPassword from '../components/PasswordReset/RequestReSetPassword.jsx'
 import ResetPassword from '../components/PasswordReset/ResetPassword.jsx'
+import AdminRegister from '../components/Admin/AdminRegister.jsx'
 
 
 // navbar urls
@@ -40,11 +41,7 @@ const routes =[
         path:'/offers',
         page:'Offers'
     },
-    {
-        path:'/gallary',
-        page:'Gallary'
-    }
-    
+
 ]
 
 // main router urls
@@ -125,6 +122,10 @@ const router = createBrowserRouter([
         {
           path:"/Admin/UpdateTable/:tableId",
           element:<UpdateTables/>
+        },
+        {
+          path:"/Admin/registerUser",
+          element:<AdminRegister/>
         }
   
       ]
@@ -163,6 +164,10 @@ const router = createBrowserRouter([
     {
         path:"/Admin/physicalTables",
         title:"Physical Tables"
+    },
+    {
+      path:"/Admin/registerUser",
+      title:"Register user"
     }
   ]
 

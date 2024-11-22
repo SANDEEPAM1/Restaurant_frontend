@@ -6,12 +6,12 @@ import {cartContext} from '../../context/CartContext'
 import './Card.css' 
 import { showErrorToast,showSuccessToast } from '../../Utility/Toaster';
 import { getUserId, getUserRole } from '../../Utility/authUtility';
-
+import { useComment } from "../../context/CommentContext";
 
 
 function Card(props) {
  const {dispatch} = useContext(cartContext)
-
+ const { openCommentModal } = useComment();
  const handleAddToCart = () =>{
   
   const userId = getUserId();
@@ -49,12 +49,10 @@ function Card(props) {
                   {props.title}
                 </h1>
                 <div className='flex'>
-                
+                <button onClick={ ()=>openCommentModal(props.id)} className='flex'>
                 <img src={colorstar} alt="Description of image" className='h-4 '/>
                 <img src={colorstar} alt="Description of image" className='h-4 '/>
-                <img src={colorstar} alt="Description of image" className='h-4 '/>
-                <img src={nonColorstar} alt="Description of image" className='h-4 '/>
-                <img src={nonColorstar} alt="Description of image" className='h-4 '/>
+                </button>
             
                 </div>
         </div>
