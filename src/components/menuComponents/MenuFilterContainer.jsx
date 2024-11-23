@@ -25,6 +25,7 @@ const handleCatagory = (catagory) =>{
                 key={index}
                 image={element.image}
                 title={element.name}
+                isSelected={selectCatagory === element.catagory}
                 onClick={()=>handleCatagory(element.catagory)}
                 />
             )

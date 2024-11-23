@@ -26,11 +26,11 @@ function Footer() {
          </div>
          <div className="flex flex-col items-center justify-center menu">
             <ul className='flex flex-col justify-between font-bold text-white'>
-              <a href='/'>Menu</a>
-              <a href='/'>Online Order</a>
-              <a href='/'>Reservasion</a>
-              <a href='/'>Offers</a>
-              <a href='/'>Galary</a>
+              <a href='/'>Home</a>
+              <a href='/menu'>Online Order</a>
+              <a href='/reservation'>Reservasion</a>
+              <a href='/offers'>Offers</a>
+              <a href='/gallary'>Galary</a>
             </ul>
          </div>
          <div className='flex flex-col justify-center gap-5'>

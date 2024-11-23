@@ -5,6 +5,7 @@ import { IoPerson } from "react-icons/io5"
 import { adminUrls } from '../Routes/UrlRoutes';
 import { NavLink } from 'react-router-dom';
 import '../components/NavBar/NavBar.css'
+import LogoutButton from '../components/LogOut/LogOut';
 
 
 
@@ -18,7 +19,8 @@ const Admin = () => {
         <header className='flex flex-row-reverse bg-gray-300 h-[7vh]'>
       <button> <IoMdMenu className='mx-3 my-2 text-4xl'/></button>
       <IoPerson className='mx-3 my-2 text-4xl'/>
-        <IoIosNotificationsOutline className='mx-3 my-2 text-4xl'/> 
+        <IoIosNotificationsOutline className='mx-3 my-2 text-4xl'/>
+        <LogoutButton className="ml-1"/> 
         <h1 className='mr-[600px] mt-2 font-bold text-4xl'>Admin Dashboard</h1>
         </header>
 
